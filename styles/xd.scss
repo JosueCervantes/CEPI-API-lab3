@@ -1,0 +1,182 @@
+/* Typographie */
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@400;700&display=swap");
+$primary: #00ADB5;
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+
+// Variables
+$primary-bg: #222831;
+$secondary-bg: #393E46;
+$accent-color: #00ADB5;
+$text-color: #EEEEEE;
+$font-serif: "Lora", serif;
+$font-sans: "Open Sans", sans-serif;
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 20px 0;
+  background-color: $primary-bg;
+  width: 100%;
+  color: $text-color;
+  font-family: $font-serif;
+}
+
+.addBlog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 20px 0;
+  background-color: $primary-bg;
+  width: 100%;
+  color: $text-color;
+  font-family: $font-serif;
+}
+
+.blog, .card {
+  font-family: $font-sans;
+}
+
+.titre {
+  font-family: $font-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  h1, p {
+    color: $text-color;
+  }
+}
+
+body {
+  background-color: $secondary-bg !important;
+  color: $text-color;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 10px;
+
+  a img {
+    width: 24px;
+    height: 24px;
+    display: block;
+  }
+}
+
+.brand, .year {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  flex: 1 1 calc(33.333% - 20px);
+  max-width: 300px;
+  background-color: $primary-bg !important;
+  color: $text-color !important;
+  border: none;
+
+  .card-title,
+  .card-text {
+    color: $text-color !important;
+  }
+}
+
+.navbar {
+  &:first-of-type {
+    background-color: $primary-bg !important;
+
+    .navbar-brand, .nav-link {
+      color: $text-color !important;
+      font-family: $font-serif;
+    }
+  }
+
+  .container-fluid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $primary-bg;
+  }
+
+  &-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    flex-grow: 1;
+  }
+}
+
+.navbar-brand {
+  white-space: nowrap;
+}
+
+.nav-item {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.navbar-second {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+  background-color: $accent-color;
+  color: $text-color;
+  font-family: $font-serif;
+
+  .container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: $accent-color;
+  }
+
+  .form-control {
+    width: 300px;
+    background-color: $accent-color;
+  }
+
+  .dropdown-menu, .nav-item {
+    list-style: none;
+    text-align: center;
+    background-color: $accent-color;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+  }
+}

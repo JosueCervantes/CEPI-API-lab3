@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/index.html">
+                <img src="/media/cepi.png" alt="logo" width="100">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/cachée.html">Ajouter un post</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Menu2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Menu3</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Menu4</a></li>
+                </ul>
+                <a href="#" class="btn btn-outline-secondary ms-3">
+                    <img src="./media/profile.png" alt="user" width="30">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenu du Blog -->
+    <div class="container mt-4">
+
+        <img id="post-image" class="img-fluid mx-auto d-block" alt="Image du blog"> <br>
+        <h1 id="post-titre" class="text-center">Titre du Blog</h1>
+        <h3>Description</h3>
+        <p id="post-description"></p>
+        <h3>Auteur</h3>
+        <p id="post-auteur"></p>
+
+        <!-- Section de comentaires -->
+        <h3>Commentaires</h3> <br>
+        <form id="comment-form">
+            <textarea id="comment-text" class="form-control mb-2" rows="4" placeholder="Écris quelque chose"></textarea>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <br>
+        <div id="comments-list"></div>        
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-3">
+        <div class="reseaux">
+            <img src="/media/facebook.png" style="width: 30px; height: 30px;" alt=""> 
+            <img src="/media/linkedin.png" style="width: 30px; height: 30px;" alt="">
+            <img src="/media/twitter.png" style="width: 30px; height: 30px;" alt="">
+        </div> <br>
+        <p>Centre d'Expertise et de Perfectionnement en Informatique</p>
+        <p>2022</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/scripts/blog.js"></script>
+    <link rel="stylesheet" href="/styles/style.css">
+</body>
+</html>
