@@ -17,6 +17,14 @@
     }
   ],
   "posts": [
+    {
+      "titre": "Aftersun",
+      "auteur": "gei",
+      "description": "aftersun movie",
+      "date": "2025-03-26T18:26:01.069Z",
+      "image": "/media/image-1743013561101.jpeg",
+      "id": 1
+    }
   ],
   "comentaires": [
     {

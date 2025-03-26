@@ -5,7 +5,16 @@ const path = require("path");
 const jsonServer = require('json-server');
 
 const app = express();
-const upload = multer({ dest: "media/" });
+const storage = multer.diskStorage({
+    destination: "media/",
+    filename: (req, file, cb) => {
+        const ext = path.extname(file.originalname); // Obtiene la extensión del archivo original
+        cb(null, file.fieldname + "-" + Date.now() + ext); // Genera un nombre único con la extensión original
+    },
+});
+
+const upload = multer({ storage: storage });
+
 
 app.use(cors());
 app.use(express.json());

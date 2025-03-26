@@ -9,14 +9,16 @@ $(document).ready(function () {
         type: "GET",
         success: function(posts) {
             postsContainer.empty();
-    
+
+            console.log("Posts cargados:", posts); // Debugging
+
             posts.forEach(post => {
                 let imageUrl = post.image ? `http://localhost:3000${post.image}` : "/media/fotoblog.jpg";
-                
+
                 let card = `
                     <div class="col-md-4 mb-4">
                         <div class="card">
-                            <img src="${imageUrl}" class="card-img-top" alt="Blog">
+                            <img src="${imageUrl}" class="card-img-top" alt="${post.titre}">
                             <div class="card-body">
                                 <h5 class="card-title">${post.titre}</h5>
                                 <p class="card-text">${post.description}</p>
@@ -26,12 +28,12 @@ $(document).ready(function () {
                         </div>
                     </div>
                 `;
-                document.getElementById("postsContainer").innerHTML += card;
+                postsContainer.append(card);
             });
         },
-        error: function() {
+        error: function(xhr, status, error) {
+            console.error("Erreur lors du chargement des posts:", error);
             alert("Erreur lors du chargement des posts.");
         }
     });
-    
 });
