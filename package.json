@@ -4,7 +4,10 @@
     "sass": "^1.85.0"
   },
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.2"
   },
   "scripts": {
     "build-sass": "sass xd.scss style.css",

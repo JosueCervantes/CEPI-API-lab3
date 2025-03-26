@@ -1,13 +1,7 @@
 $(document).ready(function() {
     $("#blogForm").submit(function(event) {
-        event.preventDefault(); // Eviter envoie automatiquement
-
-        // Verification de JQUERY
-        if (typeof $.ui === "undefined") {
-            alert("Erreur : jQuery UI ne semble pas être chargé.");
-            return;
-        }
-
+        event.preventDefault();
+    
         $("#dialog-confirm").dialog({
             resizable: false,
             height: "auto",
@@ -15,39 +9,40 @@ $(document).ready(function() {
             modal: true,
             buttons: {
                 "Oui, envoyer": function() {
-                    $(this).dialog("close"); // Fermer le dialogue
-
-                    // Obtenir les données du formulaire
+                    $(this).dialog("close");
+    
                     let titre = $("#title").val();
                     let auteur = $("#auteur").val();
                     let description = $("#description").val();
-                    let date = new Date().toISOString(); // Date automatiquement
+                    let date = new Date().toISOString();
                     let imageFile = $("#image")[0].files[0];
-
-                    // Function pour converser l'image a un file base 64
-                    function convertirImagenABase64(file, callback) {
-                        let reader = new FileReader();
-                        reader.onloadend = function() {
-                            callback(reader.result); 
-                        };
-                        reader.readAsDataURL(file);
-                    }
-
-                    // Envoyer les donnés avec l'image
+    
                     if (imageFile) {
-                        convertirImagenABase64(imageFile, function(imageBase64) {
-                            enviarDatos({ titre, auteur, description, date, image: imageBase64 });
-                        });
+                        let formData = new FormData();
+                        formData.append("image", imageFile);
+    
+                        // Subir la imagen al servidor
+                        fetch("http://localhost:3000/upload", {
+                            method: "POST",
+                            body: formData
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            let imageUrl = data.url; // La API devuelve la ruta de la imagen guardada
+                            enviarDatos({ titre, auteur, description, date, image: imageUrl });
+                        })
+                        .catch(error => console.error("Error al subir la imagen:", error));
                     } else {
                         enviarDatos({ titre, auteur, description, date, image: "" });
                     }
                 },
                 "Annuler": function() {
-                    $(this).dialog("close"); // Fermer sans envoyer
+                    $(this).dialog("close");
                 }
             }
         });
-    });
+    });    
+
 
     function enviarDatos(postData) {
         $.ajax({

@@ -5,20 +5,18 @@ $(document).ready(function () {
     postsContainer.data("loaded", true);
 
     $.ajax({
-        // URL de l'API
         url: "http://localhost:3000/posts",
-        // Method
         type: "GET",
-        success: function (posts) {
-            postsContainer.empty(); // Effacer anciens cartes
-
-            // Montrer les nouvelles cartes
+        success: function(posts) {
+            postsContainer.empty();
+    
             posts.forEach(post => {
-                // Créer la carte avec HTML
+                let imageUrl = post.image ? `http://localhost:3000${post.image}` : "/media/fotoblog.jpg";
+                
                 let card = `
                     <div class="col-md-4 mb-4">
                         <div class="card">
-                            <img src="${post.image || '/media/fotoblog.jpg'}" class="card-img-top" alt="Blog">
+                            <img src="${imageUrl}" class="card-img-top" alt="Blog">
                             <div class="card-body">
                                 <h5 class="card-title">${post.titre}</h5>
                                 <p class="card-text">${post.description}</p>
@@ -31,9 +29,9 @@ $(document).ready(function () {
                 document.getElementById("postsContainer").innerHTML += card;
             });
         },
-        error: function () {
-            // Gestion de l'erreur
+        error: function() {
             alert("Erreur lors du chargement des posts.");
         }
     });
+    
 });
