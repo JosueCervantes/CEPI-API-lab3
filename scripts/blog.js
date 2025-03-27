@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(post => {
         document.getElementById("post-titre").textContent = post.titre;
         document.getElementById("post-description").textContent = post.description;
-        document.getElementById("post-image").src = post.image;
+        document.getElementById("post-image").src = `http://localhost:3000${post.image}`;
         document.getElementById("post-auteur").textContent = post.auteur;
         })
         .catch(error => {

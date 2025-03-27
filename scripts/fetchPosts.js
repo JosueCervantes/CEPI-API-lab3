@@ -13,12 +13,12 @@ $(document).ready(function () {
             console.log("Posts cargados:", posts); // Debugging
 
             posts.forEach(post => {
-                let imageUrl = post.image ? `http://localhost:3000${post.image}` : "/media/fotoblog.jpg";
+                let imageUrl = post.image.src = `http://localhost:3000${post.image}`;
 
                 let card = `
                     <div class="col-md-4 mb-4">
                         <div class="card">
-                            <img src="${imageUrl}" class="card-img-top" alt="${post.titre}">
+                            <img src="http://localhost:3000${post.image}" class="card-img-top" alt="${post.titre}">
                             <div class="card-body">
                                 <h5 class="card-title">${post.titre}</h5>
                                 <p class="card-text">${post.description}</p>

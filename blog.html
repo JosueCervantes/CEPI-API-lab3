@@ -7,28 +7,8 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="/index.html">
-                <img src="/media/cepi.png" alt="logo" width="100">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="/cachée.html">Ajouter un post</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Menu2</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Menu3</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Menu4</a></li>
-                </ul>
-                <a href="#" class="btn btn-outline-secondary ms-3">
-                    <img src="./media/profile.png" alt="user" width="30">
-                </a>
-            </div>
-        </div>
-    </nav>
+    <!-- Container pour les composants React -->
+    <div id="root"></div>
 
     <!-- Contenu du Blog -->
     <div class="container mt-4">
@@ -50,16 +30,17 @@
         <div id="comments-list"></div>        
     </div>
 
-    <!-- Footer -->
-    <footer class="text-center py-3">
-        <div class="reseaux">
-            <img src="/media/facebook.png" style="width: 30px; height: 30px;" alt=""> 
-            <img src="/media/linkedin.png" style="width: 30px; height: 30px;" alt="">
-            <img src="/media/twitter.png" style="width: 30px; height: 30px;" alt="">
-        </div> <br>
-        <p>Centre d'Expertise et de Perfectionnement en Informatique</p>
-        <p>2022</p>
-    </footer>
+    <!-- React -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Composants React -->
+    <script type="text/babel" src="/scripts/composants/Header.js"></script>
+    <script type="text/babel" src="/scripts/composants/Footer.js"></script>
+    <script type="text/babel" src="/scripts/composants/Barre.js"></script>
+    <script type="text/babel" src="/scripts/composants/Comment.js"></script>
+    <script type="text/babel" src="/scripts/composants/CommentList.js"></script>
+    <script type="text/babel" src="/scripts/composants/blog_org.js"></script>
 
     <!-- Scripts -->
     <script src="/scripts/blog.js"></script>

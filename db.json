@@ -24,6 +24,30 @@
       "date": "2025-03-26T18:26:01.069Z",
       "image": "/media/image-1743013561101.jpeg",
       "id": 1
+    },
+    {
+      "titre": "saltburn",
+      "auteur": "no se",
+      "description": "saltburn",
+      "date": "2025-03-26T19:18:57.034Z",
+      "image": "/media/image-1743016737044.jpg",
+      "id": 2
+    },
+    {
+      "titre": "parasites",
+      "auteur": "gei",
+      "description": "peli",
+      "date": "2025-03-26T19:50:27.875Z",
+      "image": "/media/image-1743018627891.jpg",
+      "id": 3
+    },
+    {
+      "titre": "funciona",
+      "auteur": "porfavbor",
+      "description": "no se yayuda",
+      "date": "2025-03-26T20:17:09.431Z",
+      "image": "/media/image-1743020229440.png",
+      "id": 4
     }
   ],
   "comentaires": [
@@ -98,6 +122,30 @@
       "text": "q tal",
       "date": "28/2/2025, 3:30:34 a.m.",
       "postId": "0103"
+    },
+    {
+      "text": "jgjhg",
+      "date": "26/3/2025, 7:45:27 p.m.",
+      "postId": "1",
+      "id": "tXAvtPA"
+    },
+    {
+      "text": "hola",
+      "date": "26/3/2025, 7:45:36 p.m.",
+      "postId": "1",
+      "id": "HxPMhwl"
+    },
+    {
+      "text": "holis",
+      "date": "26/3/2025, 7:54:52 p.m.",
+      "postId": "1",
+      "id": "Oja5Ee1"
+    },
+    {
+      "text": "bebesita",
+      "date": "26/3/2025, 8:02:00 p.m.",
+      "postId": "2",
+      "id": "ogMgvzM"
     }
   ]
 }
