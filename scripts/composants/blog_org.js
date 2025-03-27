@@ -10,17 +10,18 @@ function App() {
         <Barre />
         <div className="container mt-4">
             <div className="row">
-            <Comment
+            </div>
+            {postId && (
+              <>
+                <Blog postId={postId} />
+                <CommentList postId={postId} refresh={refreshComments} />
+                <AddComment postId={postId} onCommentAdded={() => setRefreshComments(!refreshComments)} />
+                <Comment
                 id={2} 
                 publication_lie="Deuxieme post"
                 contenu="Un thriller captivant sur le monde de l'élite britannique."
                 date="2024-02-28T12:34:56Z"
-            />
-            </div>
-            {postId && (
-              <>
-                <CommentList postId={postId} refresh={refreshComments} />
-                <AddComment postId={postId} onCommentAdded={() => setRefreshComments(!refreshComments)} />
+                />
               </>
             )}
         </div>
