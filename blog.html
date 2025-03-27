@@ -10,26 +10,6 @@
     <!-- Container pour les composants React -->
     <div id="root"></div>
 
-    <!-- Contenu du Blog -->
-    <div class="container mt-4">
-
-        <img id="post-image" class="img-fluid mx-auto d-block" alt="Image du blog"> <br>
-        <h1 id="post-titre" class="text-center">Titre du Blog</h1>
-        <h3>Description</h3>
-        <p id="post-description"></p>
-        <h3>Auteur</h3>
-        <p id="post-auteur"></p>
-
-        <!-- Section de comentaires -->
-        <h3>Commentaires</h3> <br>
-        <form id="comment-form">
-            <textarea id="comment-text" class="form-control mb-2" rows="4" placeholder="Écris quelque chose"></textarea>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        <br>
-        <div id="comments-list"></div>        
-    </div>
-
     <!-- React -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -40,6 +20,9 @@
     <script type="text/babel" src="/scripts/composants/Barre.js"></script>
     <script type="text/babel" src="/scripts/composants/Comment.js"></script>
     <script type="text/babel" src="/scripts/composants/CommentList.js"></script>
+    <script type="text/babel" src="/scripts/composants/AddComment.js"></script>
+    <script type="text/babel" src="/scripts/composants/Blog.js"></script>
+    <script type="text/babel" src="/scripts/composants/BlogDetails.js"></script>
     <script type="text/babel" src="/scripts/composants/blog_org.js"></script>
 
     <!-- Scripts -->
