@@ -1,23 +1,26 @@
+// Composant de la liste des blogs
 function BlogList() {
-    const [blogs, setBlogs] = React.useState([]); // Estado para almacenar los blogs
+    const [blogs, setBlogs] = React.useState([]); // State pour stocker la liste des blogs
   
     React.useEffect(() => {
-      fetch("http://localhost:3000/posts") // Obtiene los datos de la API
+      fetch("http://localhost:3000/posts") // Obtenir la liste des posts
         .then(response => response.json())
-        .then(data => setBlogs(data)) // Almacena los datos en `blogs`
+        .then(data => setBlogs(data)) // Envoyer les données au state
         .catch(error => console.error("Erreur lors du chargement des posts:", error));
-    }, []); // Se ejecuta solo una vez al montar el componente
+    }, []); // S'execute une seule fois
   
     return (
       <div className="container mt-4">
         <div className="row">
+          {/* Render the blogs avec map */}
           {blogs.map(blog => (
+            // Render chaque blog
             <BlogCard
-              key={blog.id} // React necesita un `key` único
+              key={blog.id} // Utiliser l'id comme key
               id={blog.id}
               titre={blog.titre}
               description={blog.description}
-              image={`http://localhost:3000${blog.image}`} // Asegura la ruta correcta
+              image={`http://localhost:3000${blog.image}`} 
               auteur={blog.auteur}
             />
           ))}

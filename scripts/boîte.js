@@ -1,8 +1,9 @@
+// Gestion de l'envoi du formulaire et de la boîte de dialogue
 $(document).ready(function() {
     $("#blogForm").submit(function(event) {
         event.preventDefault();
-    
         $("#dialog-confirm").dialog({
+            // Configuration de la boîte de dialogue
             resizable: false,
             height: "auto",
             width: 800,
@@ -10,7 +11,7 @@ $(document).ready(function() {
             buttons: {
                 "Oui, envoyer": function() {
                     $(this).dialog("close");
-    
+                    // Obtenir les données du formulaire
                     let titre = $("#title").val();
                     let auteur = $("#auteur").val();
                     let description = $("#description").val();
@@ -18,20 +19,21 @@ $(document).ready(function() {
                     let imageFile = $("#image")[0].files[0];
     
                     if (imageFile) {
+                        // Créer un objet FormData et ajouter l'image
                         let formData = new FormData();
                         formData.append("image", imageFile);
     
-                        // Subir la imagen al servidor
+                        // Envoyer la image a l'API
                         fetch("http://localhost:3000/upload", {
                             method: "POST",
                             body: formData
                         })
                         .then(response => response.json())
                         .then(data => {
-                            let imageUrl = data.url; // La API devuelve la ruta de la imagen guardada
+                            let imageUrl = data.url; // La API retour l'url de l'image
                             enviarDatos({ titre, auteur, description, date, image: imageUrl });
                         })
-                        .catch(error => console.error("Error al subir la imagen:", error));
+                        .catch(error => console.error("Erreur dans l'envoi de l'image:", error));
                     } else {
                         enviarDatos({ titre, auteur, description, date, image: "" });
                     }

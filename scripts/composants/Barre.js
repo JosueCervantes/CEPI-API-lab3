@@ -1,3 +1,4 @@
+// Composant Barre de recherche
 function Barre(){
     return(
     <div class="container my-4">

@@ -1,6 +1,6 @@
+// Gestioner les posts et les afficher sur la page d'accueil
 $(document).ready(function () {
     let postsContainer = $("#postsContainer"); // Set le conteneur correct
-
     if (postsContainer.data("loaded")) return; // Evite execution automatique
     postsContainer.data("loaded", true);
 
@@ -10,11 +10,12 @@ $(document).ready(function () {
         success: function(posts) {
             postsContainer.empty();
 
-            console.log("Posts cargados:", posts); // Debugging
+            console.log("Posts charges:", posts); // Debugging
 
             posts.forEach(post => {
+                // Set l'url de l'image
                 let imageUrl = post.image.src = `http://localhost:3000${post.image}`;
-
+                // Créer la carte
                 let card = `
                     <div class="col-md-4 mb-4">
                         <div class="card">
@@ -28,6 +29,7 @@ $(document).ready(function () {
                         </div>
                     </div>
                 `;
+                // Ajoute la carte au conteneur
                 postsContainer.append(card);
             });
         },

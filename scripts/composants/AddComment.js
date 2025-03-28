@@ -1,23 +1,26 @@
+// Composant d'ajout de commentaire
 function AddComment({ postId, onCommentAdded }) {
+  // State pour stocker le contenu du commentaire
     const [comment, setComment] = React.useState("");
   
+    // Fonction pour soumettre le commentaire
     const handleSubmit = (event) => {
       event.preventDefault();
       
-      // Validar que el comentario no esté vacío
+      // Valider le commentaire qui ne peut pas etre vide
       if (!comment.trim()) {
         alert("Le commentaire ne peut pas être vide.");
         return;
       }
   
-      // Crear nuevo comentario
+      // Créer un nouvel objet de commentaire
       const newComment = {
         text: comment,
         date: new Date().toLocaleString(),
         postId: postId,
       };
   
-      // Enviar el comentario a la API
+      // Envoyer le commentaire à l'API
       fetch("http://localhost:3000/comentaires", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -25,9 +28,9 @@ function AddComment({ postId, onCommentAdded }) {
       })
         .then((response) => response.json())
         .then(() => {
-          setComment(""); // Limpiar el input
+          setComment(""); // Effacer le contenu du commentaire
           if (onCommentAdded) {
-            onCommentAdded(); // Notificar al padre que se agregó un comentario
+            onCommentAdded(); // Appeler la fonction de rappel
           }
         })
         .catch((error) =>
@@ -39,6 +42,7 @@ function AddComment({ postId, onCommentAdded }) {
       <div>
         <h3>Commentaires</h3>
         <br />
+        {/* Formulaire pour ajouter un commentaire */}
         <form onSubmit={handleSubmit}>
           <textarea
             className="form-control mb-2"

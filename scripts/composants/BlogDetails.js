@@ -1,16 +1,18 @@
-function BlogDetails({ postId }) {
-    const [blog, setBlog] = React.useState([]);
+// Composant BlogDetails
+function BlogDetails({ postId }) { //Recoit l'ID du blog
+    const [blog, setBlog] = React.useState([]); //State pour stocker le blog
   
-    // Cargar deatalles del blog desde la API cuando se monte el componente
+    // Charger les details du blog
     React.useEffect(() => {
       fetch(`http://localhost:3000/posts/${postId}`)
         .then(response => response.json())
         .then(data => setBlog(data))
-        .catch(error => console.error("Error cargando blog:", error));
+        .catch(error => console.error("Erreur lors du chargement des details du blog:", error));
     }, [postId]);
   
     return (
       <div>
+        {/* Render the blog details */}
         <h2>{blog.titre}</h2>
         <p>{blog.description}</p>
         <img src={`http://localhost:3000${blog.image}`} alt={blog.titre} />
